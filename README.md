@@ -47,7 +47,11 @@ python main.py --no-special
 ```
 python main.py --avoid-similar
 ```
-7. Combination of Options:
+7. Pronounceable:
+```
+python main.py --pronounceable
+```
+8. Combination of Options:
 ```
 python main.py -l 16 -c high --no-special --avoid-similar
 ```
