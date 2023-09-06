@@ -4,7 +4,7 @@
 ---
 ## Installation
 ```
-git clone https://github.com/your_username/pyssword.git
+git clone https://github.com/ltbatis/pyssword.git
 cd pyssword
 ```
 
