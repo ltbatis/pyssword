@@ -8,11 +8,19 @@ def main():
     parser.add_argument('--no-special', action='store_false', help='Do not include special characters in the password')
     parser.add_argument('-c', '--complexity', choices=['low', 'medium', 'high'], default='medium', help='Complexity level of the password')
     parser.add_argument('--avoid-similar', action='store_true', help='Avoid similar looking characters')
+    parser.add_argument('--pronounceable', action='store_true', help='Generate a pronounceable password')
 
     args = parser.parse_args()
 
-    generator = PasswordGenerator(length=args.length, use_digits=args.no_digits, use_special_chars=args.no_special, level=args.complexity, avoid_similar=args.avoid_similar)
-    print(generator.generate())
+    generator = PasswordGenerator(length=args.length, 
+                                  use_digits=args.no_digits, 
+                                  use_special_chars=args.no_special, 
+                                  level=args.complexity, 
+                                  avoid_similar=args.avoid_similar)
+    if args.pronounceable:
+        print(generator.generate_pronounceable())
+    else:
+        print(generator.generate())
 
 if __name__ == '__main__':
     main()

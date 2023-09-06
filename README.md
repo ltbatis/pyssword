@@ -1,3 +1,4 @@
+![Python Version](https://img.shields.io/badge/python-3.11.4-blue)
 # pyssword
 `pyssword` is a simple yet efficient command-line password generator. It allows users to specify password complexity, length, and even avoid similar-looking characters.
 
@@ -6,6 +7,7 @@
 ```
 git clone https://github.com/ltbatis/pyssword.git
 cd pyssword
+pip install requirements.txt
 ```
 
 ---
@@ -45,7 +47,11 @@ python main.py --no-special
 ```
 python main.py --avoid-similar
 ```
-7. Combination of Options:
+7. Pronounceable:
+```
+python main.py --pronounceable
+```
+8. Combination of Options:
 ```
 python main.py -l 16 -c high --no-special --avoid-similar
 ```
@@ -53,7 +59,12 @@ python main.py -l 16 -c high --no-special --avoid-similar
 ---
 ## Future Improvements
 
-- [ ] **Pronounceable Words**: We're planning to add a feature to generate passwords that are sequences of pronounceable words, making them easier to memorize.
+- [x] **Pronounceable Words**: We're planning to add a feature to generate passwords that are sequences of pronounceable words, making them easier to memorize.
+  - **English**: ✅ Completed
+  - **Portuguese**: 🔄 In progress... (10% done)
+  - **Spanish**: 🚫 Not started yet
+  - **French**: 🚫 Not started yet
+  - **Italian**: 🚫 Not started yet
 
 ---
 ## Contributing
