@@ -1,4 +1,6 @@
 ![Python Version](https://img.shields.io/badge/python-3.11.4-blue)
+
+
 `pyssword` is a simple yet efficient command-line password generator. It allows users to specify password complexity, length, and even avoid similar-looking characters.
 
 ---
