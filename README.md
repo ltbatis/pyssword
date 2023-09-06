@@ -11,7 +11,12 @@ pip install requirements.txt
 ```
 
 ---
+## Testing
+```
+python test_password_generator.py
+```
 
+---
 ## Usage
 Here are some demonstrations of how you can generate passwords using `pyssword`:
 1. Default Password (Medium Complexity, 8 Characters):
