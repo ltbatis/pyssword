@@ -53,7 +53,7 @@ python main.py -l 16 -c high --no-special --avoid-similar
 ---
 ## Future Improvements
 
-[ ] **Pronounceable Words**: We're planning to add a feature to generate passwords that are sequences of pronounceable words, making them easier to memorize.
+- [ ] **Pronounceable Words**: We're planning to add a feature to generate passwords that are sequences of pronounceable words, making them easier to memorize.
 
 ---
 ## Contributing
