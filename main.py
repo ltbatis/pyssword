@@ -6,10 +6,11 @@ def main():
     parser.add_argument('-l', '--length', type=int, default=8, help='Length of the password')
     parser.add_argument('--no-digits', action='store_false', help='Do not include digits in the password')
     parser.add_argument('--no-special', action='store_false', help='Do not include special characters in the password')
+    parser.add_argument('-c', '--complexity', choices=['low', 'medium', 'high'], default='medium', help='Complexity level of the password')
 
     args = parser.parse_args()
-    
-    generator = PasswordGenerator(length=args.length, use_digits=args.no_digits, use_special_chars=args.no_special)
+
+    generator = PasswordGenerator(length=args.length, use_digits=args.no_digits, use_special_chars=args.no_special, level=args.complexity)
     print(generator.generate())
 
 if __name__ == '__main__':
