@@ -57,7 +57,11 @@ python main.py --avoid-similar
 ```
 python main.py --pronounceable
 ```
-8. Combination of Options:
+8. Keyword usage:
+```
+python main.py --keyword Beauty
+```
+9. Combination of Options:
 ```
 python main.py -l 16 -c high --no-special --avoid-similar
 ```
