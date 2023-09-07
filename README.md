@@ -80,7 +80,7 @@ python main.py --clear-history
   - **Spanish**: 🚫 Not started yet
   - **French**: 🚫 Not started yet
   - **Italian**: 🚫 Not started yet
-- [ ] **Password Generation History**: Save the most recently generated passwords in a history (possibly stored locally) so users can revisit previously generated passwords if they lose them.
+- [x] **Password Generation History**: Save the most recently generated passwords in a history (possibly stored locally) so users can revisit previously generated passwords if they lose them.
 - [x] **Password Strength Assessment**: Evaluate and report how strong the generated password is, using criteria such as length, character variety, and common patterns.
   - **Basic Evaluation**: ✅ Completed
   - **Advanced Evaluation with Patterns**: 🚫 Not started yet
