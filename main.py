@@ -1,29 +1,9 @@
 import argparse
-import pickle
-import os
+import pyperclip
 from modules.password_generator import PasswordGenerator
+from modules.history_manager import HistoryManager
 
-def view_history():
-    history_file = "password_history.bin"
-    
-    if os.path.exists(history_file):
-        with open(history_file, 'rb') as file:
-            history_data = pickle.load(file)
-        for password in history_data:
-            print(password)
-    else:
-        print("No password history found.")
-
-def clear_history():
-    history_file = "password_history.bin"
-    
-    if os.path.exists(history_file):
-        os.remove(history_file)
-        print("Password history cleared.")
-    else:
-        print("No password history found.")
-
-def main():
+def parse_arguments():
     parser = argparse.ArgumentParser(description='Password Generator CLI')
     parser.add_argument('-l', '--length', type=int, default=8, help='Length of the password')
     parser.add_argument('--no-digits', action='store_false', help='Do not include digits in the password')
@@ -34,14 +14,17 @@ def main():
     parser.add_argument('-k', '--keyword', type=str, help='Provide a keyword to generate a modified version of the password')
     parser.add_argument('--view-history', action='store_true', help='View the password generation history')
     parser.add_argument('--clear-history', action='store_true', help='Clear the password generation history')
+    return parser.parse_args()
 
-    args = parser.parse_args()
+def main():
+    args = parse_arguments()
+    history_manager = HistoryManager()
 
     if args.view_history:
-        view_history()
+        history_manager.view_history()
         return
     elif args.clear_history:
-        clear_history()
+        history_manager.clear_history()
         return
 
     generator = PasswordGenerator(length=args.length, 
@@ -50,6 +33,7 @@ def main():
                                   level=args.complexity, 
                                   avoid_similar=args.avoid_similar)
     
+    password = ""
     if args.keyword:
         password = generator.keyword_based(args.keyword)
     elif args.pronounceable:
@@ -57,12 +41,13 @@ def main():
     else:
         password = generator.generate()
 
-    generator.save_to_history(password)
-
+    history_manager.save_to_history(password)
     strength = generator.assess_strength(password)
     
     print(f'Generated Password: {password}')
     print(f'Strength: {strength}')
+    pyperclip.copy(password)
+    print('Password copied to clipboard!')
 
 if __name__ == '__main__':
     main()
