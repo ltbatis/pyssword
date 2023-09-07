@@ -71,6 +71,20 @@ python main.py -l 16 -c high --no-special --avoid-similar
   - **Spanish**: 🚫 Not started yet
   - **French**: 🚫 Not started yet
   - **Italian**: 🚫 Not started yet
+- [ ] **Password Generation History**: Save the most recently generated passwords in a history (possibly stored locally) so users can revisit previously generated passwords if they lose them.
+- [ ] **Password Strength Assessment**: Evaluate and report how strong the generated password is, using criteria such as length, character variety, and common patterns.
+- [ ] **Clipboard Integration**: Automatically copy the generated password to the clipboard.
+- [ ] **Password Expiry**: Set a date or time period after which the generated password will be considered invalid.
+- [ ] **Specific Character Inclusion/Exclusion**: Allow users to specifically include or exclude certain characters or sets of characters.
+- [ ] **Pronounceable Word Model**: Beyond just generating random words, use a language model to create phrases that make more sense and are easier to remember.
+- [ ] **Safe Digraphs or Trigraphs**: Instead of picking characters entirely at random, choose pairs or trios of characters that are easier to type together.
+- [ ] **Password Variations**: Create variations of a generated password for sites or apps that have specific requirements.
+- [ ] **Password Masking**: Allow users to set a "mask" for the password, like "aA#aA#".
+- [ ] **Save in Password Managers**: Integration with popular password managers to directly save the generated password.
+- [ ] **Keyword-based Password**: Generate a password based on a keyword provided by the user, but modify it to meet certain security criteria.
+- [ ] **API/Web Service**: Turn your tool into an online service where other applications can generate passwords via API calls.
+- [ ] **Graphical UI**: Create a simple graphical interface for the generator for those who don't want to use the command line.
+- [ ] **Multi-language**: As mentioned earlier, support for generating pronounceable passwords in different languages.
 
 ---
 ## Contributing
