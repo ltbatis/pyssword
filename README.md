@@ -72,9 +72,9 @@ python main.py -l 16 -c high --no-special --avoid-similar
   - **French**: 🚫 Not started yet
   - **Italian**: 🚫 Not started yet
 - [ ] **Password Generation History**: Save the most recently generated passwords in a history (possibly stored locally) so users can revisit previously generated passwords if they lose them.
-- [ ] **Password Strength Assessment**: Evaluate and report how strong the generated password is, using criteria such as length, character variety, and common patterns.
-  - [ ] **Basic Evaluation**: ✅ Completed
-  - [ ] **Advanced Evaluation with Patterns**: 🚫 Not started yet
+- [x] **Password Strength Assessment**: Evaluate and report how strong the generated password is, using criteria such as length, character variety, and common patterns.
+  - **Basic Evaluation**: ✅ Completed
+  - **Advanced Evaluation with Patterns**: 🚫 Not started yet
 - [ ] **Clipboard Integration**: Automatically copy the generated password to the clipboard.
 - [ ] **Password Expiry**: Set a date or time period after which the generated password will be considered invalid.
 - [ ] **Specific Character Inclusion/Exclusion**: Allow users to specifically include or exclude certain characters or sets of characters.
