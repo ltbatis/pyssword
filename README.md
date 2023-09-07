@@ -65,6 +65,11 @@ python main.py --keyword Beauty
 ```
 python main.py -l 16 -c high --no-special --avoid-similar
 ```
+10. History:
+```
+python main.py --view-history
+python main.py --clear-history
+```
 
 ---
 ## Future Improvements

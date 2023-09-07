@@ -1,3 +1,5 @@
+import os
+import pickle
 import random
 import string
 import nltk
@@ -78,3 +80,19 @@ class PasswordGenerator:
             modified_keyword += random.choice(string.ascii_letters)
         
         return modified_keyword[:self.length]
+    
+    def save_to_history(self, password):
+        history_file = "password_history.bin"
+        history_data = []
+        
+        if os.path.exists(history_file):
+            with open(history_file, 'rb') as file:
+                history_data = pickle.load(file)
+        
+        history_data.append(password)
+        if len(history_data) > 10:  
+            history_data.pop(0)
+
+        
+        with open(history_file, 'wb') as file:
+            pickle.dump(history_data, file)
