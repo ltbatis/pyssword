@@ -83,7 +83,7 @@ python main.py -l 16 -c high --no-special --avoid-similar
 - [ ] **Password Variations**: Create variations of a generated password for sites or apps that have specific requirements.
 - [ ] **Password Masking**: Allow users to set a "mask" for the password, like "aA#aA#".
 - [ ] **Save in Password Managers**: Integration with popular password managers to directly save the generated password.
-- [ ] **Keyword-based Password**: Generate a password based on a keyword provided by the user, but modify it to meet certain security criteria.
+- [x] **Keyword-based Password**: Generate a password based on a keyword provided by the user, but modify it to meet certain security criteria.
 - [ ] **API/Web Service**: Turn your tool into an online service where other applications can generate passwords via API calls.
 - [ ] **Graphical UI**: Create a simple graphical interface for the generator for those who don't want to use the command line.
 - [ ] **Multi-language**: As mentioned earlier, support for generating pronounceable passwords in different languages.

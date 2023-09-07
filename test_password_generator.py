@@ -37,6 +37,38 @@ class TestPasswordGenerator(unittest.TestCase):
         for char in string.punctuation:
             self.assertNotIn(char, password)
 
+    def test_assess_strength(self):
+        generator = PasswordGenerator()
+
+        strong_password = "Aa1@abcd"
+        self.assertEqual(generator.assess_strength(strong_password), "\x1b[32mStrong\x1b[0m")
+
+        medium_password = "Aa1abcde"
+        self.assertEqual(generator.assess_strength(medium_password), "\x1b[33mMedium\x1b[0m")
+
+        weak_password = "Aa"
+        self.assertEqual(generator.assess_strength(weak_password), "\x1b[31mWeak\x1b[0m")
+
+    def test_keyword_based(self):
+        generator = PasswordGenerator()
+
+        keyword = "openAI"
+
+        password = generator.keyword_based(keyword)
+        self.assertTrue(keyword in password)
+
+        generator.use_digits = True
+        password = generator.keyword_based(keyword)
+        self.assertTrue(any(char.isdigit() for char in password))
+
+        generator.use_special_chars = True
+        password = generator.keyword_based(keyword)
+        self.assertTrue(any(char in string.punctuation for char in password))
+
+        generator.length = 10
+        password = generator.keyword_based(keyword)
+        self.assertEqual(len(password), 10)
+
 
 if __name__ == '__main__':
     unittest.main()
