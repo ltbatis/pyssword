@@ -17,10 +17,16 @@ def main():
                                   use_special_chars=args.no_special, 
                                   level=args.complexity, 
                                   avoid_similar=args.avoid_similar)
+    
     if args.pronounceable:
-        print(generator.generate_pronounceable())
+        password = generator.generate_pronounceable()
     else:
-        print(generator.generate())
+        password = generator.generate()
+
+    strength = generator.assess_strength(password)
+    
+    print(f'Generated Password: {password}')
+    print(f'Strength: {strength}')
 
 if __name__ == '__main__':
     main()

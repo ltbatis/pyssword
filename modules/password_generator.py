@@ -4,6 +4,7 @@ import nltk
 if not nltk.data.find('corpora/words'):
     nltk.download('words', quiet=True)
 from nltk.corpus import words
+from termcolor import colored
 
 class PasswordGenerator:
     def __init__(self, length=8, use_digits=True, use_special_chars=True, level='medium', avoid_similar=False):
@@ -44,3 +45,24 @@ class PasswordGenerator:
                 password += random.choice(string.punctuation)
 
         return password[:self.length]
+
+    def assess_strength(self, password):
+        score = 0
+
+        # Criteria for assessment
+        if any(char.isdigit() for char in password):  # check for digits
+            score += 1
+        if any(char in string.punctuation for char in password):  # check for special characters
+            score += 1
+        if any(char.isupper() for char in password) and any(char.islower() for char in password):  # check for both uppercase and lowercase letters
+            score += 1
+        if len(password) >= 8:  # check for length of the password
+            score += 1
+
+        # Return assessment
+        if score == 4:
+            return colored('Strong', 'green')
+        elif score == 3:
+            return colored('Medium', 'yellow')
+        else:
+            return colored('Weak', 'red')
