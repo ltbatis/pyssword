@@ -79,7 +79,7 @@ python main.py -l 16 -c high --no-special --avoid-similar
 - [x] **Password Strength Assessment**: Evaluate and report how strong the generated password is, using criteria such as length, character variety, and common patterns.
   - **Basic Evaluation**: ✅ Completed
   - **Advanced Evaluation with Patterns**: 🚫 Not started yet
-- [ ] **Clipboard Integration**: Automatically copy the generated password to the clipboard.
+- [x] **Clipboard Integration**: Automatically copy the generated password to the clipboard.
 - [ ] **Password Expiry**: Set a date or time period after which the generated password will be considered invalid.
 - [ ] **Specific Character Inclusion/Exclusion**: Allow users to specifically include or exclude certain characters or sets of characters.
 - [ ] **Safe Digraphs or Trigraphs**: Instead of picking characters entirely at random, choose pairs or trios of characters that are easier to type together.
