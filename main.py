@@ -1,4 +1,5 @@
 import argparse
+import pyperclip
 from modules.password_generator import PasswordGenerator
 
 def main():
@@ -29,7 +30,9 @@ def main():
     strength = generator.assess_strength(password)
     
     print(f'Generated Password: {password}')
+    pyperclip.copy(password)
     print(f'Strength: {strength}')
+    print('Password copied to clipboard!')
 
 if __name__ == '__main__':
     main()
