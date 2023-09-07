@@ -78,7 +78,6 @@ python main.py -l 16 -c high --no-special --avoid-similar
 - [ ] **Clipboard Integration**: Automatically copy the generated password to the clipboard.
 - [ ] **Password Expiry**: Set a date or time period after which the generated password will be considered invalid.
 - [ ] **Specific Character Inclusion/Exclusion**: Allow users to specifically include or exclude certain characters or sets of characters.
-- [ ] **Pronounceable Word Model**: Beyond just generating random words, use a language model to create phrases that make more sense and are easier to remember.
 - [ ] **Safe Digraphs or Trigraphs**: Instead of picking characters entirely at random, choose pairs or trios of characters that are easier to type together.
 - [ ] **Password Variations**: Create variations of a generated password for sites or apps that have specific requirements.
 - [ ] **Password Masking**: Allow users to set a "mask" for the password, like "aA#aA#".
