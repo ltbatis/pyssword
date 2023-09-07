@@ -49,20 +49,32 @@ class PasswordGenerator:
     def assess_strength(self, password):
         score = 0
 
-        # Criteria for assessment
-        if any(char.isdigit() for char in password):  # check for digits
+        if any(char.isdigit() for char in password):  
             score += 1
-        if any(char in string.punctuation for char in password):  # check for special characters
+        if any(char in string.punctuation for char in password):  
             score += 1
-        if any(char.isupper() for char in password) and any(char.islower() for char in password):  # check for both uppercase and lowercase letters
+        if any(char.isupper() for char in password) and any(char.islower() for char in password):  
             score += 1
-        if len(password) >= 8:  # check for length of the password
+        if len(password) >= 8:  
             score += 1
 
-        # Return assessment
         if score == 4:
             return colored('Strong', 'green')
         elif score == 3:
             return colored('Medium', 'yellow')
         else:
             return colored('Weak', 'red')
+        
+    def keyword_based(self, keyword):
+        modified_keyword = keyword
+
+        if self.use_digits and not any(char.isdigit() for char in modified_keyword):
+            modified_keyword += random.choice(string.digits)
+
+        if self.use_special_chars and not any(char in string.punctuation for char in modified_keyword):
+            modified_keyword += random.choice(string.punctuation)
+
+        while len(modified_keyword) < self.length:
+            modified_keyword += random.choice(string.ascii_letters)
+        
+        return modified_keyword[:self.length]

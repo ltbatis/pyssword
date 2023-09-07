@@ -9,6 +9,7 @@ def main():
     parser.add_argument('-c', '--complexity', choices=['low', 'medium', 'high'], default='medium', help='Complexity level of the password')
     parser.add_argument('--avoid-similar', action='store_true', help='Avoid similar looking characters')
     parser.add_argument('--pronounceable', action='store_true', help='Generate a pronounceable password')
+    parser.add_argument('-k', '--keyword', type=str, help='Provide a keyword to generate a modified version of the password')
 
     args = parser.parse_args()
 
@@ -18,7 +19,9 @@ def main():
                                   level=args.complexity, 
                                   avoid_similar=args.avoid_similar)
     
-    if args.pronounceable:
+    if args.keyword:
+        password = generator.keyword_based(args.keyword)
+    elif args.pronounceable:
         password = generator.generate_pronounceable()
     else:
         password = generator.generate()
