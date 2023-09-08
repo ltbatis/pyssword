@@ -14,6 +14,7 @@ def parse_arguments():
     parser.add_argument('-k', '--keyword', type=str, help='Provide a keyword to generate a modified version of the password')
     parser.add_argument('--view-history', action='store_true', help='View the password generation history')
     parser.add_argument('--clear-history', action='store_true', help='Clear the password generation history')
+    parser.add_argument('--validity', type=int, default=60, help='Number of days before the password expires')
     return parser.parse_args()
 
 def main():
@@ -41,7 +42,7 @@ def main():
     else:
         password = generator.generate()
 
-    history_manager.save_to_history(password)
+    history_manager.save_to_history(password, args.validity)
     strength = generator.assess_strength(password)
     
     print(f'Generated Password: {password}')
