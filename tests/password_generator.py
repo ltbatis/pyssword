@@ -68,6 +68,25 @@ class TestPasswordGenerator(unittest.TestCase):
         generator.length = 10
         password = generator.keyword_based(keyword)
         self.assertEqual(len(password), 10)
+    
+    def test_include_chars(self):
+        generator = PasswordGenerator(include_chars="@#")
+        password = generator.generate()
+        self.assertTrue(any(char in "@#" for char in password))
+    
+    def test_exclude_chars(self):
+        generator = PasswordGenerator(exclude_chars="ABCD")
+        password = generator.generate()
+        for char in "ABCD":
+            self.assertNotIn(char, password)
+    
+    def test_include_and_exclude_chars(self):
+        generator = PasswordGenerator(include_chars="@#", exclude_chars="ABCD")
+        password = generator.generate()
+        self.assertTrue(any(char in "@#" for char in password))
+        for char in "ABCD":
+            self.assertNotIn(char, password)
+
 
 
 if __name__ == '__main__':
