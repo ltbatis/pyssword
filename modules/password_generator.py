@@ -9,12 +9,14 @@ from nltk.corpus import words
 from termcolor import colored
 
 class PasswordGenerator:
-    def __init__(self, length=8, use_digits=True, use_special_chars=True, level='medium', avoid_similar=False):
+    def __init__(self, length=8, use_digits=True, use_special_chars=True, level='medium', avoid_similar=False, include_chars='', exclude_chars=''):
         self.length = length
         self.use_digits = use_digits
         self.use_special_chars = use_special_chars
         self.level = level
         self.avoid_similar = avoid_similar
+        self.include_chars = include_chars
+        self.exclude_chars = exclude_chars
 
     def set_complexity(self):
         characters = string.ascii_letters
@@ -22,7 +24,12 @@ class PasswordGenerator:
             characters += string.digits
         if self.use_special_chars:
             characters += string.punctuation
+        if self.include_chars:
+            characters += self.include_chars
+        for char in self.exclude_chars:
+            characters = characters.replace(char, '')
         return characters
+
 
     def filter_similar_chars(self, characters):
         similar_chars = 'I1l0O'
@@ -32,7 +39,15 @@ class PasswordGenerator:
         characters = self.set_complexity()
         if self.avoid_similar:
             characters = self.filter_similar_chars(characters)
-        return ''.join(random.choice(characters) for _ in range(self.length))
+
+        password = ''.join(random.choice(self.include_chars) for _ in range(len(self.include_chars)))
+        
+        password += ''.join(random.choice(characters) for _ in range(self.length - len(password)))
+        
+        password = ''.join(random.sample(password, len(password)))
+        
+        return password
+
     
     def generate_pronounceable(self):
         word_list = words.words()

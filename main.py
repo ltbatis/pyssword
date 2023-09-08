@@ -15,6 +15,9 @@ def parse_arguments():
     parser.add_argument('--view-history', action='store_true', help='View the password generation history')
     parser.add_argument('--clear-history', action='store_true', help='Clear the password generation history')
     parser.add_argument('--validity', type=int, default=60, help='Number of days before the password expires')
+    parser.add_argument('--include-chars', type=str, help='Include these specific characters in the password')
+    parser.add_argument('--exclude-chars', type=str, help='Exclude these specific characters from the password')
+
     return parser.parse_args()
 
 def main():
@@ -29,10 +32,12 @@ def main():
         return
 
     generator = PasswordGenerator(length=args.length, 
-                                  use_digits=args.no_digits, 
-                                  use_special_chars=args.no_special, 
-                                  level=args.complexity, 
-                                  avoid_similar=args.avoid_similar)
+                              use_digits=args.no_digits, 
+                              use_special_chars=args.no_special, 
+                              level=args.complexity, 
+                              avoid_similar=args.avoid_similar,
+                              include_chars=args.include_chars,
+                              exclude_chars=args.exclude_chars)
     
     password = ""
     if args.keyword:

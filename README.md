@@ -70,7 +70,11 @@ python main.py --validity 15
 ```
 python main.py -l 16 -c high --no-special --avoid-similar --validity 30
 ```
-11. History:
+11. Specific chars:
+```
+python main.py --include-chars "@#" --exclude-chars "ABCD"
+```
+12. History:
 ```
 python main.py --view-history
 python main.py --clear-history
@@ -91,7 +95,7 @@ python main.py --clear-history
   - **Advanced Evaluation with Patterns**: 🚫 Not started yet
 - [x] **Clipboard Integration**: Automatically copy the generated password to the clipboard.
 - [x] **Password Expiry**: Set a date or time period after which the generated password will be considered invalid.
-- [ ] **Specific Character Inclusion/Exclusion**: Allow users to specifically include or exclude certain characters or sets of characters.
+- [x] **Specific Character Inclusion/Exclusion**: Allow users to specifically include or exclude certain characters or sets of characters.
 - [ ] **Safe Digraphs or Trigraphs**: Instead of picking characters entirely at random, choose pairs or trios of characters that are easier to type together.
 - [ ] **Password Variations**: Create variations of a generated password for sites or apps that have specific requirements.
 - [ ] **Password Masking**: Allow users to set a "mask" for the password, like "aA#aA#".
