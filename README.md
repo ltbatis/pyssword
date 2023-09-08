@@ -14,7 +14,8 @@ pip install requirements.txt
 ---
 ## Testing
 ```
-python test_password_generator.py
+python -m unittest tests.password_generator
+python -m unittest tests.history_manager
 ```
 
 ---
@@ -61,11 +62,15 @@ python main.py --pronounceable
 ```
 python main.py --keyword Beauty
 ```
-9. Combination of Options:
+9. Expiring date:
 ```
-python main.py -l 16 -c high --no-special --avoid-similar
+python main.py --validity 15
 ```
-10. History:
+10. Combination of Options:
+```
+python main.py -l 16 -c high --no-special --avoid-similar --validity 30
+```
+11. History:
 ```
 python main.py --view-history
 python main.py --clear-history
@@ -85,7 +90,7 @@ python main.py --clear-history
   - **Basic Evaluation**: ✅ Completed
   - **Advanced Evaluation with Patterns**: 🚫 Not started yet
 - [x] **Clipboard Integration**: Automatically copy the generated password to the clipboard.
-- [ ] **Password Expiry**: Set a date or time period after which the generated password will be considered invalid.
+- [x] **Password Expiry**: Set a date or time period after which the generated password will be considered invalid.
 - [ ] **Specific Character Inclusion/Exclusion**: Allow users to specifically include or exclude certain characters or sets of characters.
 - [ ] **Safe Digraphs or Trigraphs**: Instead of picking characters entirely at random, choose pairs or trios of characters that are easier to type together.
 - [ ] **Password Variations**: Create variations of a generated password for sites or apps that have specific requirements.
