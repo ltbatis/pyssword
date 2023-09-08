@@ -86,9 +86,6 @@ python main.py --clear-history
 - [x] **Pronounceable Words**: We're planning to add a feature to generate passwords that are sequences of pronounceable words, making them easier to memorize.
   - **English**: ✅ Completed
   - **Portuguese**: 🔄 In progress... (10% done)
-  - **Spanish**: 🚫 Not started yet
-  - **French**: 🚫 Not started yet
-  - **Italian**: 🚫 Not started yet
 - [x] **Password Generation History**: Save the most recently generated passwords in a history (possibly stored locally) so users can revisit previously generated passwords if they lose them.
 - [x] **Password Strength Assessment**: Evaluate and report how strong the generated password is, using criteria such as length, character variety, and common patterns.
   - **Basic Evaluation**: ✅ Completed
