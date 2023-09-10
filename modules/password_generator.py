@@ -3,20 +3,24 @@ import pickle
 import random
 import string
 import nltk
-if not nltk.data.find('corpora/words'):
+
+try:
+    nltk.data.find('corpora/words')
+except LookupError:
     nltk.download('words', quiet=True)
+
 from nltk.corpus import words
 from termcolor import colored
 
 class PasswordGenerator:
     def __init__(self, length=8, use_digits=True, use_special_chars=True, level='medium', avoid_similar=False, include_chars='', exclude_chars=''):
-        self.length = length
+        self.include_chars = include_chars or ''
+        self.exclude_chars = exclude_chars or ''
+        self.length = max(length, len(self.include_chars))
         self.use_digits = use_digits
         self.use_special_chars = use_special_chars
         self.level = level
-        self.avoid_similar = avoid_similar
-        self.include_chars = include_chars
-        self.exclude_chars = exclude_chars
+        self.avoid_similar = avoid_similar  
 
     def set_complexity(self):
         characters = string.ascii_letters
@@ -24,8 +28,6 @@ class PasswordGenerator:
             characters += string.digits
         if self.use_special_chars:
             characters += string.punctuation
-        if self.include_chars:
-            characters += self.include_chars
         for char in self.exclude_chars:
             characters = characters.replace(char, '')
         return characters
