@@ -87,6 +87,12 @@ class TestPasswordGenerator(unittest.TestCase):
         for char in "ABCD":
             self.assertNotIn(char, password)
 
+    def test_include_chars_none(self):
+        generator = PasswordGenerator(include_chars=None)
+        password = generator.generate()
+        self.assertEqual(len(password), 8) 
+
+
 
 
 if __name__ == '__main__':
